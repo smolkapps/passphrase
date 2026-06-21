@@ -1,0 +1,32 @@
+[package]
+name = "passphrase"
+version = "1.0.0"
+edition = "2021"
+authors = ["smolkai <smolkai@users.noreply.github.com>"]
+description = "A secure, offline passphrase (diceware) and random-character password generator. Uses an OS CSPRNG and the bundled EFF large wordlist."
+license = "MIT"
+readme = "README.md"
+repository = ""
+keywords = ["passphrase", "password", "diceware", "eff", "generator"]
+categories = ["command-line-utilities", "cryptography"]
+
+[[bin]]
+name = "passphrase"
+path = "src/main.rs"
+
+[lib]
+name = "passphrase"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+rand = "0.8"
+getrandom = "0.2"
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"
+
+[profile.release]
+strip = true
+lto = true
